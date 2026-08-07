@@ -1,0 +1,110 @@
+/* style de base de mon composant Navbar*/
+.nav {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: auto;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+
+}
+
+.nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav-item .nav-ul {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+ 
+}
+
+
+
+
+
+
+/* style de base de mon composant CommunityBar*/
+
+.groupbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-bar);
+    padding: 0.5rem 2.5rem;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+    color: white;
+}
+
+.button-back {
+    background-color: #4b5563;
+    color: var(--secondary-color);
+    padding: 8px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.group-icon {
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--group-color);
+}
+
+.groupbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.25rem;
+}
+
+.groupbar-content-title {
+    font-size: 1rem;
+
+}
+
+.group-detail {
+    margin-left: 0.5rem;
+}
+
+.groupbar-content-description {
+    display: flex;
+    gap: 1rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.home-menu-show {
+    display: none
+}
+
+.show-nav-item {
+    display: block
+}
+
+/* Responsive styles */
+@media (max-width: 1018px) {
+    /* Affichage du bouton menu dans la navbar */
+
+    .home-menu-show {
+        display: block !important;
+    }
+    .show-nav-item {
+        display: none
+    }
+
+}

@@ -1,0 +1,48 @@
+/* UserHome.css */
+
+/* Style global du conteneur */
+.user-home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+  
+
+  .user-home-greeting {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem; 
+  
+  }
+  
+
+  .user-home-image {
+ 
+    height: auto;  
+    width: 400px; 
+  }
+  
+
+  @media (max-width: 1024px) {
+    .user-home-greeting {
+      font-size: 20px; 
+      margin-bottom: 15px;
+    }
+  
+ 
+  }
+  
+  @media (max-width: 480px) {
+    .user-home-greeting {
+      font-size: 18px; 
+      margin-bottom: 10px;
+    }
+  
+    .user-home-image {
+      width: 300px; 
+    }
+  }
+  

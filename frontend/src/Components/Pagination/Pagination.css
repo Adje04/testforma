@@ -1,0 +1,30 @@
+/* style de base de mon composant Pagination */
+.pagination-num {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pagination-num li {
+    margin: 0 5px;
+  }
+  
+  .pagination-num li.active button {
+    background-color: var(--primary-color) ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .pagination-num button {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: var( --second-color) ;
+    cursor: pointer;
+  }
+  
+  .pagination-num button:hover {
+    background-color: #f0f0f0;
+  }
+  

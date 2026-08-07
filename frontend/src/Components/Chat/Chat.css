@@ -1,0 +1,270 @@
+ /* style d u modal pour copier ou suprimer un message */
+ .message-options-menu {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: var(--dark-background);
+     border-radius: 5px;
+     box-shadow: 0px 4px 8px rgba(49, 132, 241, 0.815);
+     z-index: 10;
+     padding: 10px;
+     width: auto;
+ }
+
+ .message-option {
+     display: flex;
+     align-items: center;
+     padding: 8px 10px;
+     background: transparent;
+     border: none;
+     color: #f7f3f3;
+     cursor: pointer;
+     width: 100%;
+ }
+
+ .message-option:hover {
+     background-color: var(--primary-color);
+     width: 100%;
+ }
+
+ .message-option svg {
+     margin-right: 8px;
+ }
+
+
+
+/* style de base du composant Chat */
+ .chat-container {
+     /* Styles de base du conteneur */
+     display: flex;
+     flex-direction: column;
+     height: 100vh;
+     background-color: var(--dark-background);
+     color: white;
+ }
+
+ .chat-content {
+     flex-grow: 1;
+     overflow-y: scroll;
+     padding: 24px 16px;
+     scrollbar-width: thin;
+     scrollbar-color: var(--dark-primary-color) transparent;
+ }
+
+ .chat-content::-webkit-scrollbar {
+     /* Cacher la scrollbar dans WebKit */
+     display: none;
+ }
+
+ .chat-content {
+     /* Pour Firefox */
+     scrollbar-width: none;
+ }
+
+ .chat-form {
+     /* Styles pour le formulaire d'envoi de message */
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background-color: #0a1536;
+     padding: 1rem 2.5rem;
+ }
+
+ .text-message {
+     /* Input de message qui prend tout l'espace disponible */
+     flex-grow: 1;
+     padding: 8px 12px;
+     background-color: transparent;
+     color: white;
+     outline: none;
+     border: 1px solid var(--dark-primary-color);
+     border-radius: 0.75rem;
+     margin: 0 2.5rem;
+     font-size: 1rem;
+ }
+
+ .text-message:hover {
+     background-color: transparent;
+ }
+
+ .send-button {
+     /* Style du bouton d'envoi de message */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 5px 16px;
+     background-color: transparent;
+     border-radius: 4px;
+     color: white;
+     cursor: pointer;
+     transition: background-color 0.3s;
+ }
+
+ .send-button:hover {
+     background-color: var(--second-color);
+ }
+
+ .file-input-label {
+     /* Style du bouton de fichier (input caché) */
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: var(--dark-primary-color);
+     transition: color 0.3s;
+ }
+
+ .file-input-label .hidden {
+     display: none;
+ }
+
+ .file-input-label:hover {
+     color: var(--second-color);
+ }
+
+
+
+
+
+ /* style du composant Messages */
+
+ .message-container {
+     display: flex;
+     margin-bottom: 1rem;
+ }
+
+ .align-end {
+     justify-content: flex-end;
+ }
+
+ .align-start {
+     justify-content: flex-start;
+ }
+
+ .message-box {
+     display: flex;
+     flex-direction: column;
+     padding: 0.5rem;
+     border-radius: 0.5rem;
+     min-width: 5rem;
+     max-width: 20rem;
+     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+     position: relative;
+ }
+
+ .me-style {
+     color: white;
+     background-color: #4a4a4a;
+ }
+
+ .other-style {
+     color: white;
+     background-color: #6b46c1;
+ }
+
+ .username-text {
+     font-size: 0.75rem;
+     color: #e5e5e5;
+     font-weight: bold;
+     margin: 0;
+ }
+
+ .image-container {
+     position: relative;
+ }
+
+ .uploaded-image {
+     border-radius: 0.75rem;
+     max-width: 20rem;
+ }
+
+ .download-overlay {
+     position: absolute;
+     inset: 0;
+     background-color: rgba(0, 0, 0, 0.5);
+     opacity: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 0.75rem;
+     transition: opacity 0.3s;
+ }
+
+ .image-container:hover .download-overlay {
+     opacity: 1;
+ }
+
+ .download-button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     height: 2.5rem;
+     width: 2.5rem;
+     background-color: rgba(255, 255, 255, 0.3);
+     border-radius: 50%;
+     color: white;
+     text-decoration: none;
+ }
+
+ .download-icon {
+     width: 1.25rem;
+     height: 1.25rem;
+ }
+
+ .file-container {
+     display: flex;
+     align-items: start;
+     background-color: var(--tertiary-blue-color);
+     border-radius: 0.3rem;
+     padding: 0.5rem;
+ }
+
+ .file-info {
+     margin-right: 0.5rem;
+
+ }
+
+ .file-detail {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .file-name {
+     font-size: 0.875rem;
+     font-weight: 500;
+     color: #333;
+ }
+
+ .file-type {
+     font-size: 0.75rem;
+     color: #6b7280;
+ }
+
+ .file-download-button {
+     padding: 0.5rem;
+     background-color: var(--tertiary-blue-color);
+     border-radius: 0.5rem;
+     color: #333;
+     text-decoration: none;
+     transition: background-color 0.2s;
+ }
+
+ .file-download-button:hover {
+     background-color: #f3f4f6;
+ }
+
+ .file-download-icon {
+     width: 1rem;
+     height: 1rem;
+     color: #333;
+ }
+
+ .timestamp-text {
+     font-size: 0.6rem;
+     color: #9ca3af;
+     margin: 0.1rem 0 0 0;
+     text-align: right;
+
+ }

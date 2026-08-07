@@ -1,0 +1,191 @@
+ /* Style de base des pages avec pour composant respectif :
+  ListCategory, QuestionCategoery, ListCommunity */
+.overlay {
+    /* Superposition*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+
+.modal {
+    /* Contenu du modal */
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    /* Bouton de fermeture */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: red;
+    float: right;
+}
+
+
+/* styliser le tableau */
+.item-table-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.create-button {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.item-table th,
+.item-table td {
+    border: 1px solid #314dee;
+    padding: 8px;
+    text-align: left;
+}
+
+.item-table th {
+    background-color: var(--primary-color);
+    color: white
+}
+
+button {
+    margin: 0 5px;
+    background-color: var(--primary-color-opacity);
+}
+
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-op {
+    display: flex;
+    border-collapse: collapse;
+}
+
+.flex-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-operation {
+    background-color: transparent;
+}
+
+.flex {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
+}
+
+
+
+
+/* Tablette */
+@media (max-width: 768px) {
+    .item-table-container {
+        padding: 0.5rem;
+        width: 90%;
+    }
+    .pagination span {
+        font-size: 0.9rem;
+    }
+   /* Style de tableau compact pour les petits écrans */
+
+    table {
+        width: 100%;
+        font-size: 0.8em;
+      }
+    
+      th, td {
+        padding: 5px;
+      }
+    
+      .operations-cell {
+        text-align: center;
+      }
+}
+
+/* Mobile */
+@media (max-width: 630px) {
+    .item-table-container {
+        padding: 1rem;
+    }
+
+    .flex-2 {
+        align-items: start;
+        flex-direction: column;
+    }
+   
+}
+
+@media (max-width: 480px) {
+  
+    .item-table-container {
+        padding: 0.5rem;
+        width: 90%;
+    }
+    .pagination span {
+        font-size: 0.9rem;
+    }
+   /* Style de tableau compact pour les petits écrans */
+
+    table {
+        width: auto ;
+        font-size: 0.8em;
+      }
+    
+      th, td {
+        padding: 5px;
+      }
+    
+      .operations-cell {
+        text-align: center;
+      }
+
+  }
+
+
+
+
+
+
+
+
+
+
+  

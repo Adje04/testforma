@@ -1,0 +1,159 @@
+/* Styles de base pour la disposition de la page Discussion */
+.discussion-container {
+    height: 100vh;
+    background-color: var(--dark-background);
+    color: #fff;
+}
+
+.discussion-flex {
+    /* Style flex principal */
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar et Chat en disposition côte à côte pour tablettes et écrans larges */
+.sidebar-section {
+    width: 25%;
+    display: block;
+}
+
+
+.chat-section {
+    width: 75%;
+}
+
+/* Gestion de la visibilité de la Sidebar et du Chat */
+.show-sidebar {
+    display: block;
+    
+}
+
+.hidden-sidebar {
+    display: none;
+}
+
+.show-chat {
+    display: block;
+    width: 100%;
+}
+
+.hidden-chat {
+    display: none;
+}
+
+/* Styles pour le texte d'invite lorsqu'aucun groupe n'est sélectionné */
+.no-group-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.no-group-text {
+    color: #6b7280;
+    font-size: 1.25rem;
+}
+
+/* Responsive pour écran mobile (moins de 640px) */
+@media (max-width: 640px) {
+    /* Affiche uniquement la Sidebar par défaut */
+    .show-sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    /* Cache la section de Chat par défaut */
+    .chat-section {
+        display: none;
+    }
+
+    /* Si un groupe est sélectionné, cache la Sidebar et affiche le Chat */
+    .sidebar-hidden .sidebar-section {
+        display: none;
+    }
+
+    .sidebar-hidden .chat-section {
+        display: block;
+        width: 100%;
+    }
+
+    /* Style du bouton retour dans CommunityBar */
+    .button-back {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #4b5563;
+        color: var(--secondary-color);
+        padding: 8px;
+        border-radius: 9999px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 640px) {
+    .chat-section {
+        width: 75%;
+    }
+    .chat-hidden {
+        display: none;
+    }
+    .sidebar-section {
+        width: 25%;
+    }
+    .sidebar-hidden {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .button-back-hidden {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,298 @@
+/* style de la page QUESTIONTECH avec son composant ListQuestion 
+et de la page QUESTIONDETAIL avec son composant QurestionDetail */
+
+.quest-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+h1,
+p {
+  text-align: left;
+}
+
+.list-question {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  place-items: center; */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  /* height: 65vh;
+  overflow-y: scroll;
+  scrollbar-width: thin; 
+  scrollbar-color: #094EFF  transparent; */
+
+}
+
+
+
+.filter-area {
+  /* Zone de filtre et de recherche */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  /* Espacement entre le bouton et la barre de recherche */
+  margin-bottom: 1.5rem;
+  /* Espacement en bas */
+}
+
+
+.filter-area button {
+  /* sytle de la page biblioheque avec son composant Library */
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  cursor: pointer;
+  /*   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); Ombre douce */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.filter-area .filter-question button:hover {
+  background-color: #005f89;
+  /* Couleur de hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  /* Ombre plus intense */
+}
+
+
+.search-input {
+
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 14px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* transition: border-color 0.3s, box-shadow 0.3s; */
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+
+
+
+/* Zone des réponses */
+
+
+.question-detail-container {
+  /* Style pour le conteneur principal */
+  width: 90%;
+  margin: 0 auto;
+  background-color: transparent;
+
+}
+
+/* Style pour le titre de la question */
+.question-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+
+.question-content {
+  /* Style pour le contenu de la question */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #292929;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 4px solid var(--primary-color);
+  background-color: #9db2edbd;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+/* Style pour la section des réponses */
+.responses-section {
+  margin-top: 20px;
+}
+
+.responses-section h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.response-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.response-item {
+  background-color: #f5dc9b5b;
+  padding: 10px;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--primary-color);
+  color: #333;
+  width: 100%
+}
+
+
+.add-response-button {
+  /* Style du bouton Ajouter une réponse */
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-response-button:hover,
+.response-form button:hover {
+  background-color: var(--second-color);
+  color: black
+}
+
+.response-form {
+
+  /* Style pour le formulaire d'ajout de réponse */
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.response-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--dark-primary-color);
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+
+.response-form button {
+  align-self: flex-end;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+
+/* Global */
+
+
+
+/* Téléphone */
+
+
+/* Tablette */
+@media (max-width: 768px) {
+
+  .search-input {
+    width: auto;
+  }
+
+
+  .pagination {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 505px) {
+
+  .search-input {
+    width: auto;
+  }
+
+
+  .pagination {
+    gap: 1rem;
+  }
+
+  .filter-area {
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 90%;
+  }
+
+  .list-question {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .filter-area {
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 90%;
+  }
+
+  .list-question {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+
+  .question {
+  
+    flex-direction: column;
+    align-items: start;
+   
+  }
+
+  .btn-create-question {
+    width: 100%
+  }
+}

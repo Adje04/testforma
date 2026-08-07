@@ -1,0 +1,24 @@
+/* Style de base du composant AddMember  */
+
+.add-member-container {
+    padding: 2rem 1.75rem;
+    border-radius: 0.5rem;
+    width: 25rem;
+    margin: 0 auto;
+    background-color: var(--dark-background);
+    color: white;
+}
+
+.addmember-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color:white
+}
+
+
+
+
+
+

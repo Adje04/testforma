@@ -1,0 +1,93 @@
+
+
+/* style de base de mon composant Footer */
+
+.footer-all {
+    background: linear-gradient(to bottom, var(--primary-color), black);
+    color: #ffffff96;
+    padding: 5% 8%;
+    
+}
+
+.grid-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: space-evenly;
+    gap: 20px; 
+    flex-wrap: wrap;
+    
+}
+
+.footer-menu, .footer-contact, .footer-description {
+    flex-grow: 1;
+    min-width: 200px; 
+    max-width: 300px; 
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.footer-menu h3,
+.footer-contact h3,
+.footer-social h3 {
+    color: var(--second-color);
+    font-size: 1.2rem;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu ul li {
+    margin-bottom: 10px;
+}
+
+.footer-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-contact p,
+.footer-contact .footer-social a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.footer-icon {
+    color: #F7A60D;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.social-icon {
+    color: #F7A60D;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.footer-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-description p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-bottom p {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    margin-top: 20px;
+}

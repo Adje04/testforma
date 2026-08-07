@@ -1,0 +1,174 @@
+/* style de base de mon composant Sidebar */
+.side-bar {
+  background: linear-gradient(to bottom, var(--background-light) 47%, var(--primary-color));
+  position: fixed;
+  top: 75px;
+  left: 10px;
+  bottom: 10px;
+  width: var(--side-bar-width);
+  padding: var(--side-bar-padding);
+  overflow-y: visible;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgb(90, 90, 90);
+  transition: transform 0.3s ease;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0
+}
+.side-bar ul li {
+  margin-bottom: 1rem;
+}
+.close-btn {
+  position: absolute;
+  right: 10px;
+}
+
+.mosos {
+  background-color: transparent;
+}
+
+
+.sidebar {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-header {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-avatar,
+.response-avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  border: 2px solid var(--primary-color);
+}
+
+.user-avatar img,
+.response-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.response-avatar {
+  width: 35px;
+  height: 35px;
+  font-size: 0.9rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+
+.avatar-name {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.response-avatar:hover .avatar-name {
+  opacity: 1;
+  cursor: pointer;
+  background-color: blue;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+
+}
+
+/* Sidebar visible par défaut */
+.side-bar.hidden {
+  display: block;
+}
+
+/* Affiche la Sidebar lorsqu'elle est visible */
+.side-bar .visible {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+
+  /* Sidebar cachée par défaut sur les petits écrans */
+  .side-bar {
+    width: 250px;
+  }
+  .side-bar.hidden {
+    display: none;
+  }
+
+  .side-bar.visible {
+    display: block;
+    z-index: 1000;
+
+  }
+}
+
+
+.menu-btn {
+  /* Navbar menu button caché par default */
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .side-bar {
+    width: 250px;
+    top: 66px;
+    left: 0;
+    bottom: 0;
+    padding: var(--side-bar-padding);
+    overflow-y: visible;
+    border-radius: 0;
+    box-shadow: none ;
+  }
+
+ 
+ 
+ 
+
+  .menu-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+}

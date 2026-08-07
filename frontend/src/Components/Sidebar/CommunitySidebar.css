@@ -1,0 +1,145 @@
+/* style de base de composant CommunitySidebar */
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 25%;
+    height: 100vh;
+    background-color: var(--dark-sidebar);
+    color: white;
+    overflow-y: auto;
+    transition: transform 0.3s;
+}
+
+.sidebar-content {
+    padding: 16px 12px;
+    color: var(--dark-sidebar);
+}
+
+.sidebar-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--dark-primary-color);
+}
+
+.groups-title {
+    padding-top: 16px;
+    font-weight: bold;
+    color: var(--dark-primary-color);
+}
+
+.community-search {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid var(--dark-primary-color);
+    border-radius: 4px;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+.community-search:hover {
+    border-color: var(--second-color);
+    background-color: transparent ;
+    
+}
+
+.groups-list {
+    padding-top: 16px;
+}
+
+.group-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: 8px 0;
+    cursor: pointer;
+    
+    transition: background-color 0.2s;
+}
+
+.group-item:hover {
+    background-color: var(--dark-primary-color);
+}
+
+.group-avatar  {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+   
+}
+
+.group-avatar-img {
+    max-width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: fit-content ;
+    border:  2px solid var(--group-color);
+  }
+
+.group-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.group-name {
+    color: white;
+}
+
+.bg-yellow {
+    background-color: #ecc94b;
+}
+
+.bg-green {
+    background-color: #48bb78;
+}
+
+.bg-orange {
+    background-color: #ed8936;
+}
+
+.bg-blue {
+    background-color: #4299e1;
+}
+
+.bg-yellow-dark {
+    background-color: #d69e2e;
+}
+
+.bg-red {
+    background-color: #e53e3e;
+}
+
+.bg-purple {
+    background-color: #9f7aea;
+}
+
+
+
+
+
+/* Sidebar affichée en pleine largeur pour les petits écrans */
+@media (max-width: 640px) {
+    #logo-sidebar {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Sidebar affichée en quart de largeur pour les écrans moyens et plus grands */
+@media (min-width: 640px) {
+    #logo-sidebar {
+        display: block;
+        width: 25%;
+    }
+}
+
+/* Cacher la Sidebar */
+.hidden-sidebar {
+    display: none;
+}

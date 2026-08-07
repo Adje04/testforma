@@ -1,0 +1,303 @@
+/* style de la apge d'accueil symboliser par le composant Home */
+
+.banner {
+    background-image: url(../../assets/images/background.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.community-banner {
+    background-image: url(../../assets/images/CommunityChat.svg);
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: padding-box;
+    background-position: center;
+}
+
+.flex-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7rem;
+}
+
+.welcome-text {
+    color: white !important;
+    font-size: 2rem;
+}
+
+.foruma {
+    font-size: 2rem;
+    background:    linear-gradient(to right, var(--primary-color), var(--second-color) 100%) ;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ing {
+    font-size: 1.5rem;
+    color: var(  --second-yellow-color);
+}
+
+.section-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+
+.description img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.container {
+    padding: 10px 150px;
+}
+
+.section-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-title h1 {
+    color: var(--primary-color);
+ 
+}
+
+.separator {
+    width: 100px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, var(--primary-color), var(--second-color) 70%) 1;
+}
+
+.section-welcome-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-welcome-text h1 {
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+/* Responsive Styles */
+
+/* Tablets (768px and above) */
+@media (max-width: 1024px) {
+    .flex-banner {
+        padding: 2rem;
+    }
+
+    .banner {
+        height: auto;
+        padding: 2rem;
+
+    }
+
+    .foruma {
+        font-size: 1.8rem;
+    }
+
+    .ing {
+        font-size: 1.4rem;
+    }
+
+    .section-description {
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .description img {
+        width: 100%;
+    }
+
+    .container {
+        padding: 2rem 50px;
+    }
+
+    .footer-all {
+        padding: 5% 4%;
+    }
+
+
+}
+
+/* Small Tablets (600px and above) */
+@media (max-width: 768px) {
+    .flex-banner {
+        padding: 2rem 1rem;
+    }
+
+    .banner {
+
+        padding: 2rem;
+        height: auto;
+    }
+
+    .ing-image {
+        width: 400px
+    }
+
+    .foruma {
+        font-size: 1.6rem;
+    }
+
+    .ing {
+        width: 1rem;
+    }
+
+    .section-description {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .description img {
+        width: 400px;
+        height: auto;
+       
+    }
+
+    .footer-all {
+        padding: 5% 3%;
+    }
+
+    .grid-footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-menu,
+    .footer-contact,
+    .footer-description {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-social a {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    .footer-menu ul li a {
+        font-size: 1rem;
+    }
+}
+
+/* Pour les petits écrans (jusqu'à 600px) */
+@media (max-width: 600px) {
+
+    /* Bannière */
+    .banner {
+        padding: 1rem;
+        min-height: 50vh;
+        flex-direction: column;
+  
+    }
+
+    .welcome-text {
+        display: inline-block;
+        margin-top: 4rem;
+    }
+
+    .flex-banner {
+        flex-direction: column;
+        padding: 1rem;
+        justify-content: start;
+    }
+
+    /* Texte dans la bannière */
+    .foruma {
+        font-size: 1.4rem;
+        /* Plus petit pour les petits écrans */
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .ing {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Image dans la bannière */
+    .description img {
+        width: 320px;
+        /* Réduire la taille de l'image */
+        height: auto;
+        margin-top: 1rem;
+    }
+
+    .section-description {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+ 
+    .container {
+        padding: 0.2rem;
+        /* Réduire le padding */
+    }
+
+    /* Footer */
+    .footer-all {
+        padding: 3% 2%;
+        /* Réduction du padding du footer */
+    }
+
+    .grid-footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-menu,
+    .footer-contact,
+    .footer-description {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    /* Fixe le problème de débordement avec des marges ou paddings */
+    body,
+    html {
+        overflow-x: hidden;
+        /* Empêche le scroll horizontal */
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* S'assure que la hauteur totale de la page est égale à la hauteur de l'écran */
+    }
+
+    /* Footer Social Icons */
+    .footer-social a {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    /* Footer Texte */
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}

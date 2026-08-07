@@ -1,0 +1,262 @@
+/* style de base dun composant Card */
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 180px;
+  height: fit-content;
+  background: linear-gradient(to bottom, black 47%, var(--primary-color));
+
+}
+
+.card-image {
+  width: 100%;
+  height: 246px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-title {
+  color: white;
+  font-size: 0.75em;
+
+  text-overflow: ellipsis;
+  font-weight: lighter;
+}
+
+.card-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 0.75rem;
+}
+
+.card-icon {
+  font-size: 24px;
+}
+
+
+
+/* style de base du composant CardQuestion */
+
+.card-question {
+  width: 20rem;
+  height: 15rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  cursor: pointer;
+
+}
+
+
+.card-question:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-question.darker-bg {
+  background-color: #0e0d0b;
+}
+
+.card-question.darker-bg:hover {
+  background-color: #D9CBA3;
+}
+
+.card-question:focus,
+.card-question:active {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  background-color: #d12f2f;
+  transform: scale(1.02);
+}
+
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+
+
+.content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; 
+}
+
+.title {
+  font-weight: bold;
+  font-size: 15px;
+  color: #202124;
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.text {
+  font-size: 13px;
+  color: #5f6368;
+  line-height: 1.6;
+  display: -webkit-box; 
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 4; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+.card-question {
+  width: 15rem;
+  height: 12rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-question:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-question.darker-bg {
+  background-color: #0e0d0b;
+}
+
+.card-question.darker-bg:hover {
+  background-color: #D9CBA3;
+}
+
+.card-question:focus,
+.card-question:active {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  background-color: #d12f2f;
+  transform: scale(1.02);
+}
+
+
+
+
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5em;
+  font-size: 14px;
+  color: #5f6368;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 10px;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+}
+
+.like-section span {
+  margin-right: 5px;
+}
+
+.response-section a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.response-section a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 870px) {
+  .card-question {
+    padding: 0.5rem;
+    border-radius: 8px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* .card, .card-question {
+
+    height: auto;
+    margin-bottom: 15px;
+  } */
+
+
+
+  .card-title,
+  .title {
+    font-size: 1em;
+  }
+
+  .text,
+  .card-content,
+  .footer {
+    font-size: 0.875em;
+  }
+
+
+}
+
+@media (max-width: 704px) {
+  .card-question {
+    padding: 0.5rem;
+    border-radius: 8px;
+    width: 400px;
+  }
+
+  .card-content,
+  .content {
+    padding: 10px;
+  }
+
+  .card-icon,
+  .like-section,
+  .response-section a {
+    font-size: 0.75em;
+    /* Taille des icônes et des liens réduite */
+  }
+}
+
+@media (max-width: 480px) {
+  .card-question {
+    padding: 0.5rem;
+    border-radius: 8px;
+    width: 250px;
+  }
+
+  .card-content,
+  .content {
+    padding: 10px;
+  }
+
+  .card-icon,
+  .like-section,
+  .response-section a {
+    font-size: 0.75em;
+    /* Taille des icônes et des liens réduite */
+  }
+}

@@ -1,0 +1,99 @@
+/* style deS PAGAES D4INSCRPTION, DE CONNEXION, DE OTPCODE, DE CONFIRMATION DE MAIL, VERIFICATION DE MAIL
+ DE RENITIALISATION DE MOT DE PASSE AVECLEUR COMPOSANT RESPECTIF
+Registration, Login, OtpCode, ConfirEmail, VerifyEmail, ForgetPassword */
+
+
+.form {
+    width: 65vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: auto;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+    overflow: hidden;
+   
+}
+
+.form-img
+ {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    height: 100%;      
+    background-color: var(--primary-color);     
+}
+
+.form-style {
+    align-self: center;
+    background-color: white;
+    border-radius: 0 25px 25px 0;
+    padding: 2rem;
+}
+
+.form-style h1 {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .form {
+    grid-template-columns: 1fr 1fr; 
+    width: 80vw; 
+   
+  }
+  .form-style {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .form img {
+    padding: 2rem;
+  }
+
+
+}
+
+
+@media (max-width: 986px) {
+  .form {
+    grid-template-columns: 1fr; 
+    width:auto;
+    padding: 1rem;
+    background-color:transparent !important;
+    place-items: center;
+  }
+
+  .form-img {
+    display: none; 
+  }
+
+  .form-style {
+    padding: 1rem;
+    width: 80%;
+    border-radius: 10px;
+    align-self: center;
+    border:2px solid var(--primary-color)
+  }
+
+  h1 {
+    font-size: 1.2rem; 
+    
+  }
+
+  .form-style p {
+    font-size: 0.8rem; 
+  }
+
+  input, textarea, select {
+    padding: 8px;
+  }
+
+}

@@ -1,0 +1,59 @@
+
+.error-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .error-404 h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+  }
+  
+  .error-404 p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .error-image {
+    max-width: 100%;
+    height: auto;
+    width: 300px; 
+    margin-bottom: 20px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .error-404 h1 {
+      font-size: 2em;
+    }
+  
+    .error-404 p {
+      font-size: 1em;
+    }
+  
+    .error-image {
+      width: 250px; 
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .error-404 h1 {
+      font-size: 1.8em;
+    }
+  
+    .error-404 p {
+      font-size: 0.9em;
+    }
+  
+    .error-image {
+      width: 200px; 
+    }
+  }
+  

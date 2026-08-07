@@ -1,0 +1,32 @@
+.footer-position {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+}
+
+
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* .main-content {
+    display: flex;
+    flex: 1; 
+    overflow: auto; 
+} */
+
+.side-side {
+    flex-shrink: 0; /* Garde la Sidebar fixe en largeur */
+    overflow-y: auto; /* Permet à la Sidebar d'être défilable */
+    height: 100%; /* S'adapte à la hauteur du conteneur principal */
+} 
+
+
+ 
+
