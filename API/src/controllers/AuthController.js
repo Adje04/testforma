@@ -24,6 +24,15 @@ const refreshCookieOptions = {
     path: '/api/v1.0.0/refresh-token',
 };
 
+// Mêmes attributs que le cookie posé, MAIS sans maxAge : depuis Express 5,
+// clearCookie ignore/déprécie maxAge (il expire déjà immédiatement par défaut).
+const clearRefreshCookieOptions = {
+    httpOnly: refreshCookieOptions.httpOnly,
+    secure: refreshCookieOptions.secure,
+    sameSite: refreshCookieOptions.sameSite,
+    path: refreshCookieOptions.path,
+};
+
 async function issueRefreshToken(userId) {
     const { rawToken, hash } = generateOpaqueToken();
     await RefreshToken.create({
@@ -143,7 +152,7 @@ export const refreshAccessToken = async (req, res) => {
         const stored = await RefreshToken.findOne({ tokenHash });
 
         if (!stored || stored.expiresAt < new Date()) {
-            res.clearCookie('refreshToken', refreshCookieOptions);
+            res.clearCookie('refreshToken', clearRefreshCookieOptions);
             return res.status(401).json({ message: 'Session expirée, veuillez vous reconnecter.' });
         }
 
@@ -172,7 +181,8 @@ export async function logout(req, res) {
             const tokenHash = hashToken(rawToken);
             await RefreshToken.deleteOne({ tokenHash });
         }
-        res.clearCookie('refreshToken', refreshCookieOptions);
+        res.clearCookie('refreshToken', clearRefreshCookieOptions);
+        
         res.status(200).json({ success: true, message: 'Utilisateur déconnecté.' });
     } catch (error) {
         res.status(500).json({ message: 'Erreur serveur', error: error.message });
@@ -181,7 +191,7 @@ export async function logout(req, res) {
 
 
 export const verifyOtpCode = async (req, res) => {
-    const { email, code } = req.body;
+    const { email, code, purpose } = req.body;
 
     try {
         const otp = await OtpCode.findOne({ email });
@@ -211,8 +221,26 @@ export const verifyOtpCode = async (req, res) => {
         await otp.deleteOne();
 
         const user = await User.findOne({ email });
+             if (!user) {
+            return res.status(404).json({ message: 'Utilisateur introuvable.' });
+        }
 
-        res.status(200).json({
+        if (purpose === 'reset-password') {
+            // L'OTP prouve la possession de la boîte mail : on émet un token de reset
+            // à usage unique, pour que /resetPassword ne repose plus sur un simple id devinable.
+            const { rawToken, hash } = generateOpaqueToken();
+            user.resetPasswordTokenHash = hash;
+            user.resetPasswordExpires = new Date(Date.now() + 15 * 60 * 1000);
+            await user.save();
+
+            return res.status(200).json({
+                success: true,
+                message: 'OTP vérifié avec succès.',
+                resetToken: rawToken,
+            });
+        }
+
+        return res.status(200).json({
             success: true,
             message: 'OTP vérifié avec succès.',
             redirectUrl: user.isAdmin ? '/dashboard' : '/userDashboard',

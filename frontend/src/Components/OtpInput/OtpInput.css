@@ -1,32 +1,24 @@
 .otp-input-group {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin: 16px 0;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .otp-input-box {
-    width: 48px;
-    height: 56px;
+    width: clamp(24px, 9vw, 36px);
+    height: clamp(32px, 9vw, 42px);
+
     text-align: center;
-    font-size: 24px;
+    font-size: clamp(16px, 3.5vw, 16px);
     font-weight: 600;
+
     border: 2px solid #dee2ff;
     border-radius: 8px;
-    outline: none;
-    transition: border-color 0.15s ease;
+    box-sizing: border-box;
 }
 
 
 
-@media (max-width: 480px) {
-    .otp-input-group {
-        gap: 8px;
-    }
-
-    .otp-input-box {
-        width: 40px;
-        height: 48px;
-        font-size: 20px;
-    }
-}

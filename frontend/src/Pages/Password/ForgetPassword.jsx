@@ -60,7 +60,7 @@ export default function ForgetPassword() {
     }
 
     return (
-        <div>
+        <div className='form-position'>
             <div className='form'>
                 <div className='form-img'>
                     <Image src={'/images/password.svg'} alt={"illustration-password"} />

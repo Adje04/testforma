@@ -28,7 +28,7 @@ export default function Login() {
             if (response.status === 200 && response.data.accessToken) {
                 toast.success('Connexion réussie');
                 const userData = {
-                    token: response.data.accessToken, // avant : response.data.token (n'existait plus côté API)
+                    token: response.data.accessToken, 
                     isAdmin: response.data.isAdmin,
                     userId: response.data.data._id,
                     name: response.data.data.name
@@ -48,8 +48,7 @@ export default function Login() {
     };
 
     return (
-        <div>
-            <br /> <br /> <br /> <br />
+        <div className='form-position'>
 
             <div className='form'>
 

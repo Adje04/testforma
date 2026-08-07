@@ -40,22 +40,24 @@ export default function OtpCode() {
   };
 
   return (
-    <div className='form'>
-      <div className='form-img'>
-        <Image src={"/images/login.svg"} alt={"illustration-inscription"} />
-      </div>
-      <div className='form-style'>
-        <h1>Code de confirmation</h1>
-        <p style={{ textAlign: 'center' }}>Saisissez le code à 6 chiffres reçu par email</p>
-        <form onSubmit={handleSubmit}>
-          <OtpInput value={otpCode} onChange={setOtpCode} />
-          <Button
-            disabled={isLoading || otpCode.length !== 6}
-            type={"submit"}
-            text={isLoading ? "Vérification..." : <strong>Valider</strong>}
-            style={{ backgroundColor: '#FFB800', width: '100%' }}
-          />
-        </form>
+    <div className='form-position'>
+      <div className='form'>
+        <div className='form-img'>
+          <Image src={"/images/login.svg"} alt={"illustration-inscription"} />
+        </div>
+        <div className='form-style'>
+          <h1>Code de confirmation</h1>
+          <p style={{ textAlign: 'center' }}>Saisissez le code à 6 chiffres reçu par email</p>
+          <form onSubmit={handleSubmit}>
+            <OtpInput value={otpCode} onChange={setOtpCode} />
+            <Button
+              disabled={isLoading || otpCode.length !== 6}
+              type={"submit"}
+              text={isLoading ? "Vérification..." : <strong>Valider</strong>}
+              style={{ backgroundColor: '#FFB800', width: '100%' }}
+            />
+          </form>
+        </div>
       </div>
     </div>
   );

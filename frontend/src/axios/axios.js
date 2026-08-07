@@ -31,12 +31,29 @@ function resolvePendingRequests(newToken) {
   pendingRequests = [];
 }
 
+// Endpoints d'auth "publics" : un 401 ici est une erreur métier normale
+// (mauvais mot de passe, session déjà expirée, etc.), PAS un access token expiré.
+// Il ne faut donc jamais déclencher le refresh ni la redirection forcée dessus,
+// sinon le message d'erreur n'a pas le temps de s'afficher (page reload immédiat).
+const AUTH_ENDPOINTS_EXCLUDED_FROM_REFRESH = [
+  '/login',
+  '/register',
+  '/refresh-token',
+  '/verify-otpCode',
+  '/verifyEmail',
+  '/forgot-password',
+  '/resetPassword',
+];
+
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
+    const isExcluded = AUTH_ENDPOINTS_EXCLUDED_FROM_REFRESH.some((path) =>
+      originalRequest.url?.includes(path)
+    );
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 401 && !originalRequest._retry && !isExcluded) {
       originalRequest._retry = true;
 
       if (isRefreshing) {

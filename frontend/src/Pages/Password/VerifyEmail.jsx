@@ -34,7 +34,7 @@ export default function VerifyEmail() {
 
     return (
         <div className='form-position'>
-            <div className='form form-position'>
+            <div className='form'>
                 <div className='form-img'>
                     <Image src={"/images/login.svg"} alt={"illustration-inscription"} />
                 </div>
