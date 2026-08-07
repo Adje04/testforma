@@ -4,6 +4,7 @@ import {
     logout,
     register,
     verifyOtpCode,
+    resendOtpCode,
     resetPassword,
     verifyEmail,
     forgotPassword,
@@ -24,6 +25,8 @@ router.post('/login', login);
 router.post('/refresh-token', refreshAccessToken);
 
 router.post('/verify-otpCode', otpLimiter, verifyOtpCode);
+
+router.post('/resend-otpCode', emailActionLimiter, resendOtpCode);
 
 router.post('/logout', logout);
 

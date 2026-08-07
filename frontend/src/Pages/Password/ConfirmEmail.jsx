@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../../Components/Button/Button';
 import OtpInput from '../../Components/OtpInput/OtpInput';
+import ResendOtp from '../../Components/ResendOtp/ResendOtp';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import Image from '../../Components/Image/Image';
@@ -62,6 +63,7 @@ export default function ConfirmEmail() {
               style={{ backgroundColor: '#FFB800', width: '100%' }}
             />
           </form>
+          <ResendOtp email={email} />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../Components/Button/Button';
 import OtpInput from '../../Components/OtpInput/OtpInput';
+import ResendOtp from '../../Components/ResendOtp/ResendOtp';
 import { useNavigate } from 'react-router-dom';
 import { apiClient } from '../../axios/axios';
 import { toast } from "react-toastify";
@@ -57,6 +58,7 @@ export default function OtpCode() {
               style={{ backgroundColor: '#FFB800', width: '100%' }}
             />
           </form>
+           <ResendOtp email={email} />
         </div>
       </div>
     </div>

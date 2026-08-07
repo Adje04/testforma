@@ -251,6 +251,47 @@ export const verifyOtpCode = async (req, res) => {
     }
 }
 
+// Renvoie un nouveau code OTP quand l'ancien a expiré ou n'a jamais été reçu.
+// Réutilisé par la page d'inscription (code-confirmation) ET la page de
+// mot de passe oublié (email-confirmation) : le comportement est identique,
+// seul le "purpose" affiché au frontend change.
+export const resendOtpCode = async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.status(400).json({ message: "Email requis." });
+    }
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: "Utilisateur introuvable." });
+        }
+
+        const otpCode = String(Math.floor(100000 + Math.random() * 900000));
+        const otpHash = await bcrypt.hash(otpCode, 10);
+
+        await OtpCode.findOneAndUpdate(
+            { email },
+            {
+                code: otpHash,
+                attempts: 0,
+                expiresAt: new Date(Date.now() + 10 * 60 * 1000), // valide 10 minutes, on repart à zéro
+            },
+            { upsert: true }
+        );
+
+        await sendOtpEmail(email, otpCode);
+
+        res.status(200).json({
+            success: true,
+            message: "Un nouveau code vous a été envoyé par email.",
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur", error: error.message });
+    }
+};
+
 
 export const verifyEmail = async (req, res) => {
     const { email } = req.body;
