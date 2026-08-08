@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from '../../Components/Button/Button';
 import OtpInput from '../../Components/OtpInput/OtpInput';
 import ResendOtp from '../../Components/ResendOtp/ResendOtp';
 import { useNavigate } from 'react-router-dom';
 import { apiClient } from '../../axios/axios';
-import { toast } from "react-toastify";
-import Image from '../../Components/Image/Image';
+import { toast } from 'sonner'
+import AuthShell from '../../Components/AuthShell/AuthShell'
 
 export default function OtpCode() {
   const [otpCode, setOtpCode] = useState('');
@@ -28,10 +28,10 @@ export default function OtpCode() {
       const response = await apiClient.post('/verify-otpCode', { email, code: otpCode });
 
       if (response.status === 200) {
-        toast.success("Vérification réussie");
+        toast.success('Vérification réussie');
         navigate('/login');
       } else {
-        toast.error(response.data.message || "Code incorrect");
+        toast.error(response.data.message || 'Code incorrect');
       }
     } catch (error) {
       toast.error(error.response?.data?.message || 'Erreur lors de la vérification');
@@ -41,26 +41,19 @@ export default function OtpCode() {
   };
 
   return (
-    <div className='form-position'>
-      <div className='form'>
-        <div className='form-img'>
-          <Image src={"/images/login.svg"} alt={"illustration-inscription"} />
-        </div>
-        <div className='form-style'>
-          <h1>Code de confirmation</h1>
-          <p style={{ textAlign: 'center' }}>Saisissez le code à 6 chiffres reçu par email</p>
-          <form onSubmit={handleSubmit}>
-            <OtpInput value={otpCode} onChange={setOtpCode} />
-            <Button
-              disabled={isLoading || otpCode.length !== 6}
-              type={"submit"}
-              text={isLoading ? "Vérification..." : <strong>Valider</strong>}
-              style={{ backgroundColor: '#FFB800', width: '100%' }}
-            />
-          </form>
-           <ResendOtp email={email} />
-        </div>
+    <AuthShell title="Code de confirmation" subtitle="Saisissez le code à 6 chiffres reçu par email.">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <OtpInput value={otpCode} onChange={setOtpCode} />
+        <Button
+          disabled={isLoading || otpCode.length !== 6}
+          type="submit"
+          text={isLoading ? 'Vérification...' : 'Valider'}
+          className="w-full"
+        />
+      </form>
+      <div className="mt-6">
+        <ResendOtp email={email} />
       </div>
-    </div>
-  );
+    </AuthShell>
+  )
 }

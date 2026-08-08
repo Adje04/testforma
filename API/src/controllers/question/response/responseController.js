@@ -1,6 +1,47 @@
 import Question from '../../../models/Question.js';
 import User from '../../../models/User.js';
+import { notifyQuestionReply } from '../../../services/NotificationService.js';
 
+export const addResponse = async (req, res) => {
+    const { questionId } = req.params;
+    const { content } = req.body;
+    const userId = req.user.id;
+
+    try {
+        const question = await Question.findById(questionId);
+        if (!question) {
+            return res.status(404).json({ success: false, message: 'Question non trouvée' });
+        }
+        if (!content || content.trim() === '') {
+            return res.status(400).json({ success: false, message: 'Le contenu de la réponse ne peut pas être vide' });
+        }
+
+        question.responses.push({ user_id: userId, content });
+        const questionResponse = await question.save();
+
+        const io = req.app.get('io');
+        if (io) {
+            await notifyQuestionReply(io, {
+                recipientId: question.user_id,
+                questionTitle: question.title,
+                questionId: question._id,
+                replierId: userId,
+            });
+        }
+
+        res.status(201).json({
+            success: true,
+            message: 'votre réponse a été enrégistrée avec succès.',
+            data: questionResponse
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Une erreur inattendue est survenue, veuillez réessayer plus tard.',
+            error: error.message || 'Erreur serveur'
+        });
+    }
+};
 
 
 
@@ -34,40 +75,6 @@ export const getResponses = async (req, res) => {
 };
 
 
-export const addResponse = async (req, res) => {
-    const { questionId } = req.params;
-    const { content } = req.body;
-    const userId = req.user.id;
-
-    try {
-        // Vérifiez si la question existe
-        const question = await Question.findById(questionId);
-        if (!question) {
-            return res.status(404).json({ success: false, message: 'Question non trouvée' });
-        }
-
-        // Vérifiez que le contenu de la réponse n'est pas vide
-        if (!content || content.trim() === '') {
-            return res.status(400).json({ success: false, message: 'Le contenu de la réponse ne peut pas être vide' });
-        }
-
-        // Ajout de la réponse à la question
-        question.responses.push({ user_id: userId, content });
-        const questionResponse = await question.save();
-
-        res.status(201).json({
-            success: true,
-            message: 'votre réponse a été enrégistrée avec succès.',
-            data: questionResponse
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Une erreur inattendue est survenue, veuillez réessayer plus tard.',
-            error: error.message || 'Erreur serveur'
-        });
-    }
-};
 
 export const updateResponse = async (req, res) => {
     const { questionId, responseId } = req.params;

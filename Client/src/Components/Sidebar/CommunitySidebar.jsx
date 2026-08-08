@@ -33,7 +33,7 @@ export default function CommunitySidebar({ onGroupClick }) {
       <div className="flex items-center justify-between border-b border-border p-4">
         <h2 className="text-base font-semibold text-foreground">Discussions</h2>
         <Link
-          to="/dashboard"
+          to="/userDashboard/welcome"
           className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
         >
           <LayoutDashboard className="h-3.5 w-3.5" />

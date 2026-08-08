@@ -62,23 +62,23 @@ export const addMember = async (req, res) => {
     const { email } = req.body;
     const { communityId } = req.params;
     const requesterId = req.user.id;
+    const io = req.app.get('io');
 
     try {
-        const community = await CommunityService.addMember(communityId, email, requesterId);
+        const community = await CommunityService.addMember(communityId, email, requesterId, io);
 
         if (!community) {
-            // await CommunityService.sendInvitation(email, communityId); 
-            return res.status(201).json({ success: false, message: 'pas encore inscit; une invitation vous aété envoyé' });
+            return res.status(201).json({ success: false, message: 'pas encore inscrit; une invitation vous a été envoyée' });
         }
 
         if (community.memberExist) {
-            return res.status(409).json({ success: false, message: 'cet email est déja utilisé' });
+            return res.status(409).json({ success: false, message: 'cet email est déjà utilisé' });
         }
 
         return res.status(201).json({ success: true, data: community, message: 'membre ajouté avec succès' });
     } catch (err) {
-        //console.log(err);
-         const status = err.statusCode || 500;
+        console.log(err);
+        const status = err.statusCode || 500;
         return res.status(status).json({ success: false, error: err.message });
     }
 };
@@ -97,7 +97,9 @@ export const joinCommunity = async (req, res) => {
         return res.status(200).json({ success: true, data: result.community, message: 'Vous avez rejoint la communauté avec succès' });
 
     } catch (err) {
-        
-        return res.status(500).json({ success: false, error: err.message });
+        console.log(err);
+        const status = err.statusCode || 500;
+        return res.status(status).json({ success: false, error: err.message });
     }
+   
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { X, Home, HelpCircle, Library, Users, MessageCircle, User, Plus, LayoutDashboard, FolderTree, FilePlus, List } from 'lucide-react';
+import { X, ArrowLeft, HelpCircle, Library, Users, MessageCircle, User, Plus, LayoutDashboard, FolderTree, FilePlus, List, ArrowBigLeftDash } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../../State/UserContext.jsx';
 import { apiClient } from '../../axios/axios.js';
@@ -96,8 +96,8 @@ export default function Sidebar({ toggleSidebar, className, isStatic = false }) 
   // Sidebar utilisateur connecté
   return (
     <aside className={cn(shellClass, 'p-4', className)}>
-      <div className="flex items-center justify-between px-2 py-2">
-        <span className="text-base font-bold text-foreground">Navigation</span>
+      <div className="flex items-center justify-between">
+        <Link to="/" > <ArrowLeft className="h-4 w-4" /></Link>
         {CloseBtn}
       </div>
 
@@ -122,9 +122,9 @@ export default function Sidebar({ toggleSidebar, className, isStatic = false }) 
       </Link>
 
       <nav className="mt-4 flex flex-col gap-1">
-        {navItem('/', <Home className="h-4 w-4" />, 'Accueil')}
-        {navItem('/userDashboard/bibliothèque', <Library className="h-4 w-4" />, 'Bibliothèque')}
         {navItem('/userDashboard/welcome', <LayoutDashboard className="h-4 w-4" />, 'Tableau de bord')}
+        {navItem('/userDashboard/bibliothèque', <Library className="h-4 w-4" />, 'Bibliothèque')}
+
         <div>
           <button
             onClick={() => setShowButtons(!showButtons)}

@@ -25,13 +25,8 @@ export const sendMessage = async (req, res) => {
         const senderId = req.user.id;
         const { communityId } = req.params;
 
-        const data = {
-            sender: senderId,
-            community_id: communityId,
-            content: content,
-        };
-       const file = req.file
-        // Ajouter les informations du fichier si un fichier est envoyé
+        const data = { sender: senderId, community_id: communityId, content };
+        const file = req.file;
         if (file) {
             data.path = file.path;
             data.type = file.mimetype;
@@ -39,23 +34,16 @@ export const sendMessage = async (req, res) => {
             data.name = file.originalname;
         }
 
-        const message = await MessageService.createMessage(data);
-
         const io = req.app.get('io');
+        const message = await MessageService.createMessage(data, io);
+
         io.to(communityId).emit('newMessage', message);
 
-        return res.status(201).json({
-            success: true,
-            data: message,
-            message: 'Message envoyé avec succès',
-        });
+        return res.status(201).json({ success: true, data: message, message: 'Message envoyé avec succès' });
     } catch (error) {
         console.error(error);
         const status = error.statusCode || 500;
-        return res.status(status).json({
-            success: false,
-            error: error.message,
-        });
+        return res.status(status).json({ success: false, error: error.message });
     }
 };
 

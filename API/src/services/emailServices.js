@@ -1,7 +1,9 @@
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
 import { sendOtpCode } from '../utils/emailTemplates/otpCodeTemplate.js';
-import { resetPasswordEmailTemplate } from '../utils/emailTemplates/resetPasswordTemplate.js';
+import { resetPasswordTemplate } from '../utils/emailTemplates/resetPasswordTemplate.js';
+import { communityAddedTemplate } from '../utils/emailTemplates/communityAddedTemplate.js';
+import { questionReplyTemplate } from '../utils/emailTemplates/questionReplyTemplate.js';
 
 dotenv.config()
 
@@ -59,6 +61,20 @@ export const sendResetPasswordEmail = async (email, resetLink) => {
     }
 };
 
+
+export const sendCommunityAddedEmail = (email, userName, communityName, communityLink) => send({
+    from: FROM_ADDRESS, to: email, 
+    subject: `Vous avez rejoint ${communityName}`,
+    text: `Vous avez été ajouté(e) à la communauté ${communityName} : ${communityLink}`,
+    html: communityAddedTemplate(userName, communityName, communityLink),
+});
+
+export const sendQuestionReplyEmail = (email, userName, questionTitle, questionLink) => send({
+    from: FROM_ADDRESS, to: email, 
+    subject: `Nouvelle réponse à votre question`,
+    text: `Quelqu'un a répondu à "${questionTitle}" : ${questionLink}`,
+    html: questionReplyTemplate(userName, questionTitle, questionLink),
+});
 
 
 

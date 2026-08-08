@@ -5,6 +5,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../../State/UserContext';
 import { useTheme } from '../../State/ThemeContext';
+import NotificationBell from '../Notifications/NotificationBell';
 import { toast } from 'sonner';
 import { apiClient } from '../../axios/axios';
 import { cn } from '@/lib/utils'
@@ -86,13 +87,16 @@ export default function Navbar({ OnMenuClick }) {
             </button>
 
             {user ? (
-              <Button
-                text={<span className="hidden sm:inline">Déconnexion</span>}
-                icon={<LogOut className="h-4 w-4" />}
-                disabled={isloading}
-                onClick={handleLogout}
-                className="px-3! py-2! sm:px-3!"
-              />
+              <>
+                <NotificationBell />
+                <Button
+                  text={<span className="hidden sm:inline">Déconnexion</span>}
+                  icon={<LogOut className="h-4 w-4" />}
+                  disabled={isloading}
+                  onClick={handleLogout}
+                  className="px-3! py-2! sm:px-3!"
+                />
+              </>
             ) : (
               <Link to="/login">
                 <Button

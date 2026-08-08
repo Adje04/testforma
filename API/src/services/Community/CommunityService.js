@@ -1,6 +1,12 @@
 import Community from '../../models/Community.js';
 import User from '../../models/User.js';
-// import { sendInvitationEmail, notifyCommunityMembers, sendRegisterUserAddedEmail } from '../utils/mailer.js';
+import { notifyCommunityAdded } from '../NotificationService.js';
+
+function isCreatorOrMember(community, userId) {
+    const isCreator = community.user_id.toString() === userId;
+    const isMember = community.members.some(m => m.user_id.toString() === userId);
+    return isCreator || isMember;
+}
 
 export const getAllCommunities = async () => {
     try {
@@ -20,23 +26,26 @@ export const getCommunityByUser = async (userId) => {
 
 export const createCommunity = async (data, creatorId) => {
     try {
-
         const community = await Community.create(data);
-        await addMemberByUserId(community._id, creatorId);  // Ajouterle createur diretement comme membre
+        await addMemberByUserId(community._id, creatorId);
         return community;
     } catch (error) {
         throw new Error(`Erreur lors de la creation de la communauté: ${error.message}`);
     }
 };
 
-// requesterId : l'utilisateur qui fait la demande d'ajout — doit être le créateur de la communauté
-export const addMember = async (communityId, email, requesterId) => {
+/*
+* 
+* Add a member to a community
+* 
+*/
+export const addMember = async (communityId, email, requesterId, io) => {
     try {
         const community = await Community.findById(communityId);
-        if (!community) throw new Error('Communauté non trouvé');
+        if (!community) throw new Error('Communauté non trouvée');
 
-        if (community.user_id.toString() !== requesterId.toString()) {
-            const err = new Error('Seul le créateur de la communauté peut ajouter des membres');
+        if (!isCreatorOrMember(community, requesterId)) {
+            const err = new Error('Vous devez être membre de cette communauté pour y ajouter quelqu\'un');
             err.statusCode = 403;
             throw err;
         }
@@ -50,20 +59,19 @@ export const addMember = async (communityId, email, requesterId) => {
         community.members.push({ user_id: user._id });
         await community.save();
 
-        // await sendRegisterUserAddedEmail(community, user);
-        // await notifyCommunityMembers(community, user);
+        if (io) {
+            await notifyCommunityAdded(io, {
+                recipientId: user._id,
+                communityName: community.name,
+                communityId: community._id,
+            });
+        }
 
         return community;
     } catch (error) {
         throw error;
-        //throw new Error(`Error adding member: ${error.message}`);
     }
 };
-
-
-
-
-
 
 export const addMemberByUserId = async (communityId, userId) => {
     try {
@@ -79,20 +87,11 @@ export const addMemberByUserId = async (communityId, userId) => {
         community.members.push({ user_id: userId });
         await community.save();
 
-
-        // await notifyCommunityMembers(community, user);
-
         return { community };
     } catch (error) {
         throw new Error(`Erreur lors de l'ajout du membre: ${error.message}`);
     }
 };
-
-
-
-// export const sendInvitation = async (email, communityId) => {
-//     await sendInvitationEmail(email, communityId);
-// };
 
 const CommunityService = {
     getAllCommunities,
@@ -100,8 +99,6 @@ const CommunityService = {
     createCommunity,
     addMember,
     addMemberByUserId
-    // sendInvitation
 };
 
 export default CommunityService;
-

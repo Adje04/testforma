@@ -13,6 +13,7 @@ import resourceRoutes from './src/routes/resourceRoutes.js';
 import communityRoutes from './src/routes/communityRoutes.js';
 import messageRoutes from './src/routes/messageRoutes.js';
 import profileRoutes from './src/routes/profileRoutes.js';
+import notificationRoutes from './src/routes/notificationRoutes.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import morgan from 'morgan';
@@ -62,6 +63,8 @@ app.use('/api/v1.0.0/', resourceRoutes);
 app.use('/api/v1.0.0/', communityRoutes);
 app.use('/api/v1.0.0/', messageRoutes);
 app.use('/api/v1.0.0/', profileRoutes);
+app.use('/api/v1.0.0/', notificationRoutes);
+
 //connexion à la db
 connectToDatabase();
 
