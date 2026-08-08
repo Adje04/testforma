@@ -31,7 +31,7 @@ export default function AuthShell({ title, subtitle, children, backTo = '/' }) {
               { icon: Users, text: 'Communautés par domaine d\'ingénierie' },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-3 text-white/90">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 backdrop-blur">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 backdrop-blur-sm">
                   <item.icon className="h-4 w-4" />
                 </span>
                 <span className="text-sm">{item.text}</span>

@@ -67,7 +67,7 @@ export default function Messages({ user, content, path, type, createdAt, usernam
               <a
                 href={`${import.meta.env.VITE_ASSETS_URL || ''}/chats/${path.split('\\').pop()}`}
                 download
-                className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-lg bg-black/50 text-white backdrop-blur transition-colors hover:bg-black/70"
+                className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-lg bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
               >
                 <Download className="h-4 w-4" />
               </a>

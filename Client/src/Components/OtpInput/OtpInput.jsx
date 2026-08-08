@@ -65,7 +65,7 @@ export default function OtpInput({ length = 6, value = '', onChange }) {
           maxLength={1}
           className={cn(
             'h-12 w-11 sm:h-14 sm:w-12 rounded-lg border bg-background text-center text-lg font-semibold text-foreground',
-            'transition-all focus:outline-none focus:ring-2 focus:ring-ring/40',
+            'transition-all focus:outline-hidden focus:ring-2 focus:ring-ring/40',
             digit ? 'border-primary' : 'border-input'
           )}
           value={digit}

@@ -25,7 +25,7 @@ export default function Footer({ className }) {
           {/* Marque */}
           <div className="md:col-span-2">
             <Link to="/" className="inline-flex items-center">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-xl font-bold tracking-tight text-transparent">
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-xl font-bold tracking-tight text-transparent">
                 Foruma
               </span>
             </Link>

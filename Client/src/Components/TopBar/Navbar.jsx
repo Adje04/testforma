@@ -65,7 +65,7 @@ export default function Navbar({ OnMenuClick }) {
               </button>
             )}
             <Link to="/" className="flex items-center gap-2">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-lg font-bold tracking-tight text-transparent">Foruma</span>
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-lg font-bold tracking-tight text-transparent">Foruma</span>
             </Link>
           </div>
 
@@ -102,14 +102,14 @@ export default function Navbar({ OnMenuClick }) {
                 icon={<LogOut className="h-4 w-4" />}
                 disabled={isloading}
                 onClick={handleLogout}
-                className="!px-3 !py-2"
+                className="px-3! py-2!"
               />
             ) : (
               <Link to="/login">
                 <Button
                   text="Connexion"
                   icon={<LogIn className="h-4 w-4" />}
-                  className="!px-3 !py-2"
+                  className="px-3! py-2!"
                 />
               </Link>
             )}

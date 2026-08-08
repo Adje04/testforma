@@ -24,7 +24,7 @@ export default function Button({
         'bg-primary text-primary-foreground transition-all',
         'hover:bg-primary/90 active:scale-[0.98]',
         'disabled:opacity-60 disabled:pointer-events-none',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50',
+        'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring/50',
         className
       )}
     >

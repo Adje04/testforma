@@ -44,7 +44,7 @@ export default function CommunityBar({ group, goBackClick }) {
         <Button
           onClick={openModal}
           icon={<UserPlus className="h-4 w-4" />}
-          className="!bg-transparent !text-foreground !border !border-border hover:!bg-muted !px-3 !py-2"
+          className="bg-transparent! text-foreground! border! border-border! hover:bg-muted! px-3! py-2!"
         />
         <button
           className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"

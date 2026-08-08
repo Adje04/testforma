@@ -105,7 +105,7 @@ export default function Profile() {
           <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
           {profile && profile.map((user, index) => (
             <div key={index} className="relative flex flex-col items-center text-center">
-              <div className="flex h-24 w-24 rounded-full bg-gradient-to-br from-primary to-accent p-[3px]">
+              <div className="flex h-24 w-24 rounded-full bg-linear-to-br from-primary to-accent p-[3px]">
                 {user.avatar ? (
                   <img
                     src={currentAvatarUrl}
@@ -144,7 +144,7 @@ export default function Profile() {
 
             {/* Zone upload avatar moderne */}
             <div className="mt-6 flex flex-col items-center gap-5 rounded-xl border border-dashed border-input bg-muted/20 p-6 sm:flex-row sm:items-center">
-              <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-linear-to-br from-primary/15 to-accent/15 text-primary">
                 {avatarPreview ? (
                   <img src={avatarPreview} alt="Aperçu" className="h-full w-full object-cover" />
                 ) : currentAvatarUrl ? (
@@ -211,7 +211,7 @@ export default function Profile() {
                 onClick={handleDeleteAccount}
                 disabled={isLoading}
                 text={isLoading ? 'En cours...' : 'Supprimer le compte'}
-                className="!bg-transparent !text-destructive !border !border-destructive/30 hover:!bg-destructive/10"
+                className="bg-transparent! text-destructive! border! border-destructive/30! hover:bg-destructive/10!"
               />
             </div>
           </form>

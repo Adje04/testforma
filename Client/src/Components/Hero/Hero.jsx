@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       {/* Grille de fond (style Aceternity) */}
-      <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black_30%,transparent_80%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_70%_60%_at_50%_0%,black_30%,transparent_80%)]" />
 
       {/* Halos aurora dégradés */}
       <div className="pointer-events-none absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-primary/25 blur-[100px]" />
@@ -27,7 +27,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm"
           >
             <Sparkles className="h-3.5 w-3.5 text-accent" />
             Plateforme communautaire d'ingénieurs
@@ -41,7 +41,7 @@ export default function Hero() {
             className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
             Pensez. Construisez. Progressez.{' '}
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
               Ensemble.
             </span>
           </motion.h1>
@@ -73,7 +73,7 @@ export default function Hero() {
             </Link>
             <Link
               to="/list-question"
-              className="group inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur transition-all hover:-translate-y-0.5 hover:border-primary/40"
+              className="group inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-primary/40"
             >
               Voir les questions
               <ArrowRight className="h-4 w-4 text-primary transition-transform group-hover:translate-x-0.5" />
@@ -94,7 +94,7 @@ export default function Hero() {
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card"
             >
               <div className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 to-accent/15 text-primary">
                 <card.icon className="h-5 w-5" />
               </div>
               <p className="relative mt-4 text-sm font-semibold text-foreground">{card.title}</p>

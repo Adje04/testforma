@@ -71,7 +71,7 @@ export default function CreateQuestion() {
           <Button
             text="Voir les questions"
             icon={<List className="h-4 w-4" />}
-            className="!bg-transparent !text-primary !border !border-primary/30 hover:!bg-primary/10"
+            className="bg-transparent! text-primary! border! border-primary/30! hover:bg-primary/10!"
           />
         </Link>
       </div>

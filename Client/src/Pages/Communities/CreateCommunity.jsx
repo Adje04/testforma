@@ -157,7 +157,7 @@ export default function CreateCommunity({ community, onSave, onCancel }) {
         <Button
           onClick={onCancel}
           text="Fermer"
-          className="!bg-transparent !text-foreground !border !border-border hover:!bg-muted"
+          className="bg-transparent! text-foreground! border! border-border! hover:bg-muted!"
         />
       </div>
     </form>

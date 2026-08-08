@@ -38,7 +38,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 md:grid-cols-4">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="bg-gradient-to-r from-primary to-accent bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+              <p className="bg-linear-to-r from-primary to-accent bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
                 {stat.value}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
@@ -100,7 +100,7 @@ export default function Home() {
             {STEPS.map((s, i) => (
               <div key={s.title} className="relative rounded-2xl border border-border bg-background p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-primary/40">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-sm font-bold text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-sm font-bold text-white">
                     {i + 1}
                   </span>
                   <s.icon className="h-5 w-5 text-primary" />
@@ -128,13 +128,13 @@ export default function Home() {
 
       {/* CTA Communautés */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary via-primary to-accent p-10 text-center shadow-lift sm:p-16">
-          <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_80%)]" />
+        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-linear-to-br from-primary via-primary to-accent p-10 text-center shadow-lift sm:p-16">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black_30%,transparent_80%)]" />
           <div className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-black/10 blur-3xl" />
 
           <div className="relative">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
               <Users className="h-3.5 w-3.5" />
               Communautés
             </span>

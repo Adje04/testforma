@@ -144,7 +144,7 @@ export default function ItemTable() {
       <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <span>Lignes par page</span>
-          <select value={rowsPerPage} onChange={handleChangeRowsPerPage} className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40">
+          <select value={rowsPerPage} onChange={handleChangeRowsPerPage} className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-hidden focus:ring-2 focus:ring-ring/40">
             <option value={3}>3</option>
             <option value={10}>10</option>
             <option value={25}>25</option>

@@ -30,7 +30,7 @@ export default function SpotlightCard({ icon: Icon, title, desc, children, class
       />
       <div className="relative">
         {Icon && (
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/15 to-accent/15 text-primary">
             <Icon className="h-5 w-5" />
           </div>
         )}

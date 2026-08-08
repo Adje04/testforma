@@ -92,7 +92,7 @@ export default function QuestionDetail() {
               <div key={index} className="rounded-xl border border-border bg-card p-4 shadow-soft">
                 <div className="flex items-start gap-3">
                   <div
-                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
                     style={{ backgroundColor: response.user_id?.avatar ? 'transparent' : getBackgroundColor() }}
                   >
                     {response.user_id?.avatar ? (

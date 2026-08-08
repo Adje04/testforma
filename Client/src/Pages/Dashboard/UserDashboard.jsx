@@ -11,7 +11,7 @@ export default function UserDashboard() {
         <div className="min-h-screen bg-background">
             <Navbar OnMenuClick={sidebarSmallScreen} />
             <div className="flex">
-                <div className="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 flex-shrink-0 lg:block">
+                <div className="sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 lg:block">
                     <Sidebar isStatic />
                 </div>
 

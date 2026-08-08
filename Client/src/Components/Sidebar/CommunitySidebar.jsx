@@ -77,11 +77,11 @@ export default function CommunitySidebar({ onGroupClick }) {
                     <img
                       src={`${import.meta.env.VITE_ASSETS_URL || ''}/avatars/${group.avatar.split('\\').pop()}`}
                       alt={group.name}
-                      className="h-9 w-9 flex-shrink-0 rounded-full object-cover"
+                      className="h-9 w-9 shrink-0 rounded-full object-cover"
                     />
                   ) : (
                     <div
-                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
                       style={{ backgroundColor: group.color }}
                     >
                       {group.name.slice(0, 2).toUpperCase()}

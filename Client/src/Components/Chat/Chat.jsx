@@ -101,7 +101,7 @@ export default function Chat({ group, goBackClick }) {
       </div>
 
       <form onSubmit={handleMessageSend} className="flex items-center gap-2 border-t border-border bg-card p-3">
-        <label className="flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+        <label className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
           <input type="file" onChange={(e) => setFile(e.target.files[0])} className="hidden" />
           <FilePlus className="h-5 w-5" />
         </label>
@@ -114,7 +114,7 @@ export default function Chat({ group, goBackClick }) {
         />
         <button
           type="submit"
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
           aria-label="Envoyer"
         >
           <Send className="h-4 w-4" />

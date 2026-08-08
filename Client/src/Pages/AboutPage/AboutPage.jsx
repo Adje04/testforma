@@ -57,18 +57,18 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
-        <div className="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black_30%,transparent_80%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_70%_60%_at_50%_0%,black_30%,transparent_80%)]" />
         <div className="pointer-events-none absolute -top-20 left-1/4 h-64 w-64 rounded-full bg-primary/20 blur-[100px]" />
         <div className="pointer-events-none absolute -top-10 right-1/4 h-64 w-64 rounded-full bg-accent/20 blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
             <Target className="h-3.5 w-3.5 text-primary" />
             À propos de Foruma
           </span>
           <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
             En savoir plus sur notre{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">projet</span>
+            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">projet</span>
           </h1>
           <p className="mt-6 max-w-2xl leading-relaxed text-muted-foreground">
             Notre plateforme est conçue pour les ingénieurs, afin de faciliter l'accès aux
@@ -93,7 +93,7 @@ export default function AboutPage() {
         <div className="mt-10 divide-y divide-border border-y border-border">
           {VALUES.map((v, i) => (
             <div key={v.title} className="grid gap-3 py-6 sm:grid-cols-12 sm:items-center">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-4xl font-extrabold leading-none text-transparent sm:col-span-2">
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-4xl font-extrabold leading-none text-transparent sm:col-span-2">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="text-lg font-semibold text-foreground sm:col-span-3">{v.title}</h3>

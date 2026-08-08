@@ -12,7 +12,7 @@ export default function Card({ width, height, image, file, text, icon, iconStyle
       )}
       style={{ width, height, ...style }}
     >
-      <div className="aspect-[3/4] overflow-hidden bg-muted">
+      <div className="aspect-3/4 overflow-hidden bg-muted">
         <img
           src={image ? `${import.meta.env.VITE_ASSETS_URL || ''}/resource/${image.split('\\').pop()}` : defaultCover}
           alt="image de la ressource"
@@ -23,7 +23,7 @@ export default function Card({ width, height, image, file, text, icon, iconStyle
         <p className="truncate text-sm font-medium text-foreground">{text}</p>
         {icon && (
           <button
-            className="flex flex-shrink-0 items-center justify-center rounded-lg p-2 text-accent transition-colors hover:bg-accent/10"
+            className="flex shrink-0 items-center justify-center rounded-lg p-2 text-accent transition-colors hover:bg-accent/10"
             style={iconStyle}
           >
             {icon}

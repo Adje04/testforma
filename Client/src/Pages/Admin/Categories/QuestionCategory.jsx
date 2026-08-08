@@ -111,7 +111,7 @@ export default function QuestionCategory({ category, onSave, onCancel }) {
           className="flex-1"
         />
         <Button
-          className="!bg-transparent !text-foreground !border !border-border hover:!bg-muted"
+          className="bg-transparent! text-foreground! border! border-border! hover:bg-muted!"
           onClick={onCancel}
           text={'Fermer'}
         />

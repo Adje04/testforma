@@ -107,7 +107,7 @@ export default function ListQuestion() {
             <select
               value={rowsPerPage}
               onChange={handleChangeRowsPerPage}
-              className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
+              className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-hidden focus:ring-2 focus:ring-ring/40"
             >
               <option value={5}>5</option>
               <option value={10}>10</option>

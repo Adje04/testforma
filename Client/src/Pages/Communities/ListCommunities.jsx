@@ -119,7 +119,7 @@ export default function ListCommunities() {
             >
               <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="relative flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-base font-bold text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-base font-bold text-white">
                   {group.name?.slice(0, 2).toUpperCase()}
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-2.5 py-1 text-xs font-medium text-muted-foreground">
@@ -128,7 +128,7 @@ export default function ListCommunities() {
                 </span>
               </div>
               <h3 className="relative mt-4 text-base font-semibold text-foreground">{group.name}</h3>
-              <p className="relative mt-1.5 line-clamp-3 min-h-[3.75rem] text-sm text-muted-foreground">
+              <p className="relative mt-1.5 line-clamp-3 min-h-15 text-sm text-muted-foreground">
                 {group.description}
               </p>
               <div className="relative mt-5">
@@ -136,7 +136,7 @@ export default function ListCommunities() {
                   onClick={() => joinCommunity(group._id)}
                   text="Rejoindre"
                   icon={<Plus className="h-4 w-4" />}
-                  className="!w-full"
+                  className="w-full!"
                 />
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function ListCommunities() {
             <select
               value={rowsPerPage}
               onChange={handleChangeRowsPerPage}
-              className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
+              className="rounded-lg border border-input bg-background px-2 py-1 text-sm focus:outline-hidden focus:ring-2 focus:ring-ring/40"
             >
               <option value={6}>6</option>
               <option value={9}>9</option>
