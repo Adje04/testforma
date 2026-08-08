@@ -58,7 +58,7 @@ export default function Footer({ className }) {
             </div>
 
             <div className="footer-bottom">
-                <p>foruma © 2024 - Powered & designed by adjeeklou22@gmail.com</p>
+                <p>foruma © {new Date().getFullYear()} - Powered & designed by adjeeklou22@gmail.com</p>
             </div>
         </footer>
     );
