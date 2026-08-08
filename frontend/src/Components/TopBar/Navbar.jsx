@@ -67,10 +67,6 @@ export default function Navbar({ OnMenuClick }) {
                     <h1>Foruma</h1>
                 </div>
 
-
-
-
-
                 <div className="nav-item show-nav-item">
                     <ul className='nav-ul'>
                         <li>

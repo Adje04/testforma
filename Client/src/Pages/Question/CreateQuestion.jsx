@@ -127,7 +127,6 @@ export default function CreateQuestion() {
               disabled={isLoading}
               type="submit"
               text={isLoading ? 'Chargement...' : 'Envoyer'}
-              icon={<HelpCircle className="h-4 w-4" />}
             />
           </div>
         </div>

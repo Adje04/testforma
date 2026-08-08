@@ -54,20 +54,9 @@ export default function Navbar({ OnMenuClick }) {
     <>
       <header className="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            {(PUBLIC_PAGES.includes(location.pathname) || OnMenuClick) && (
-              <button
-                onClick={OnMenuClick || toggleSidebar}
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-muted lg:hidden"
-                aria-label="Menu"
-              >
-                <Menu className="h-5 w-5" />
-              </button>
-            )}
-            <Link to="/" className="flex items-center gap-2">
-              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-lg font-bold tracking-tight text-transparent">Foruma</span>
-            </Link>
-          </div>
+          <Link to="/" className="flex items-center gap-2">
+            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-lg font-bold tracking-tight text-transparent">Foruma</span>
+          </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => (
@@ -98,20 +87,30 @@ export default function Navbar({ OnMenuClick }) {
 
             {user ? (
               <Button
-                text="Déconnexion"
+                text={<span className="hidden sm:inline">Déconnexion</span>}
                 icon={<LogOut className="h-4 w-4" />}
                 disabled={isloading}
                 onClick={handleLogout}
-                className="px-3! py-2!"
+                className="px-3! py-2! sm:px-3!"
               />
             ) : (
               <Link to="/login">
                 <Button
-                  text="Connexion"
+                  text={<span className="hidden sm:inline">Connexion</span>}
                   icon={<LogIn className="h-4 w-4" />}
-                  className="px-3! py-2!"
+                  className="px-3! py-2! sm:px-3!"
                 />
               </Link>
+            )}
+
+            {(PUBLIC_PAGES.includes(location.pathname) || OnMenuClick) && (
+              <button
+                onClick={OnMenuClick || toggleSidebar}
+                className="flex h-9 w-9 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-muted lg:hidden"
+                aria-label="Menu"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
             )}
           </div>
         </nav>

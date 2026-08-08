@@ -61,9 +61,8 @@ export default function AboutPage() {
         <div className="pointer-events-none absolute -top-20 left-1/4 h-64 w-64 rounded-full bg-primary/20 blur-[100px]" />
         <div className="pointer-events-none absolute -top-10 right-1/4 h-64 w-64 rounded-full bg-accent/20 blur-[100px]" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-20 lg:py-28">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-            <Target className="h-3.5 w-3.5 text-primary" />
             À propos de Foruma
           </span>
           <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">

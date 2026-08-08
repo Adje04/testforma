@@ -4,6 +4,8 @@ import CommunityBar from '../TopBar/CommunityBar';
 import { FilePlus, Send } from 'lucide-react';
 import Messages from './Messages';
 import { apiClient } from '../../axios/axios';
+import { MessageCircle } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export default function Chat({ group, goBackClick }) {
   const [messages, setMessages] = useState([]);
@@ -81,7 +83,9 @@ export default function Chat({ group, goBackClick }) {
       <div className="flex-1 space-y-3 overflow-y-auto bg-muted/30 p-4">
         {messages.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center text-center text-sm text-muted-foreground">
-            <MessageCirclePlaceholder />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <MessageCircle className="h-8 w-8 text-primary" />
+            </div>
             <p className="mt-3">Aucun message. Démarrez la conversation !</p>
           </div>
         ) : (
@@ -122,8 +126,4 @@ export default function Chat({ group, goBackClick }) {
       </form>
     </div>
   )
-}
-
-function MessageCirclePlaceholder() {
-  return <div className="text-4xl">💬</div>
 }

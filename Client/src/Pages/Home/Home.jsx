@@ -3,7 +3,7 @@ import Navbar from '../../Components/TopBar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import Hero from '../../Components/Hero/Hero';
 import SpotlightCard from '../../Components/SpotlightCard/SpotlightCard';
-import Testimonials from '../../Components/Testimonials/Testimonials';
+// import Testimonials from '../../Components/Testimonials/Testimonials';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Users, ArrowRight, HelpCircle, Library, Sparkles } from 'lucide-react'
 
@@ -38,7 +38,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 md:grid-cols-4">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="bg-linear-to-r from-primary to-accent bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+              <p className="bg-linear-to-r from-tertiary to-primary bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
                 {stat.value}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
@@ -100,9 +100,7 @@ export default function Home() {
             {STEPS.map((s, i) => (
               <div key={s.title} className="relative rounded-2xl border border-border bg-background p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-primary/40">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-primary to-accent text-sm font-bold text-white">
-                    {i + 1}
-                  </span>
+                  
                   <s.icon className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-foreground">{s.title}</h3>
@@ -124,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Témoignages */}
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       {/* CTA Communautés */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">

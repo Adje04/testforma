@@ -10,10 +10,10 @@ export default function AuthShell({ title, subtitle, children, backTo = '/' }) {
       {/* Panneau latéral */}
       <div className="relative hidden w-1/2 flex-col justify-between overflow-hidden bg-primary p-12 lg:flex">
         <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-2xl" />
-        <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-accent/30 blur-2xl" />
+        <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-white/10 blur-2xl" />
 
         <Link to={backTo} className="relative flex items-center gap-2 text-white">
-          <span className="text-xl font-bold">Foruma</span>
+            <ArrowLeft className="h-4 w-4 font-black " />
         </Link>
 
         <div className="relative space-y-6 text-white">
@@ -40,7 +40,7 @@ export default function AuthShell({ title, subtitle, children, backTo = '/' }) {
           </div>
         </div>
 
-        <p className="relative text-xs text-white/60">Foruma © 2024</p>
+        <p className="relative text-xs text-white/60"> {new Date().getFullYear()}</p>
       </div>
 
       {/* Zone formulaire */}

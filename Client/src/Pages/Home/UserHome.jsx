@@ -21,7 +21,7 @@ export default function UserHome() {
         <div className="relative">
           <p className="text-sm text-primary-foreground/80">Tableau de bord</p>
           <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
-            Bienvenue, <span className="text-accent">{username}</span> 👋
+            Bienvenue, <span className="text-accent dark:text-white ">{username}</span>
           </h2>
           <p className="mt-2 max-w-md text-sm text-primary-foreground/80">
             Retrouvez vos ressources, questions et communautés depuis cet espace.

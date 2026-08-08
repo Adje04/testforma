@@ -29,9 +29,8 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm"
           >
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
             Plateforme communautaire d'ingénieurs
-            <span className="h-1 w-1 rounded-full bg-accent" />
+            <span className="h-1 w-1 rounded-full bg-primary dark:bg-accent" />
           </motion.span>
 
           <motion.h1
@@ -54,7 +53,7 @@ export default function Hero() {
           >
             Foruma réunit des milliers d'ingénieurs autour des ressources pédagogiques,
             des questions techniques et de communautés actives. Apprenez, enseignez,
-            résolvez — ensemble, en temps réel.
+            résolvez ensemble, en temps réel.
           </motion.p>
 
           <motion.div

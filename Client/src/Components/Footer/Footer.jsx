@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, Linkedin, Facebook, Twitter, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, ArrowUpRight } from 'lucide-react';
 
 const MENU = [
   { label: 'Accueil', to: '/' },
@@ -34,8 +34,8 @@ export default function Footer({ className }) {
               pédagogiques, échangez entre juniors et seniors, et développez vos
               compétences au sein d'une communauté active et bienveillante.
             </p>
-            <div className="mt-6 flex items-center gap-2">
-              {[Linkedin, Facebook, Twitter].map((Icon, i) => (
+            {/* <div className="mt-6 flex items-center gap-2">
+              {[Linkedin, Twitter].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
@@ -45,7 +45,7 @@ export default function Footer({ className }) {
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Navigation */}
@@ -84,10 +84,12 @@ export default function Footer({ className }) {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            Foruma © {year} — Powered &amp; designed by adjeeklou22@gmail.com
+            Foruma © {year} Powered &amp; designed by adjeeklou22@gmail.com
           </p>
           <p className="text-xs text-muted-foreground">
-            Conçu pour les ingénieurs, par des ingénieurs.
+            Tous droits réservés. <span className="hidden sm:inline"></span>{' '}
+            <span className="sm:ml-1">Mentions légales</span>
+            
           </p>
         </div>
       </div>
