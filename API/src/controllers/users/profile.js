@@ -32,8 +32,12 @@ export const updateProfile = async (req, res) => {
             },
         });
     } catch (error) {
-        console.log(error)
-        // res.status(500).json({ message: 'Erreur serveur', error: error.message });
+        //console.log(error)
+        res.status(500).json({
+            success: false,
+            message: 'Erreur serveur',
+          //  error: error.message
+        });
     }
 };
 

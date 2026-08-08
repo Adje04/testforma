@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
-import { sendOtpCode } from '../utils/emailTemplates.js';
+import { sendOtpCode } from '../utils/emailTemplates/otpCodeTemplate.js';
+import { resetPasswordEmailTemplate } from '../utils/emailTemplates/resetPasswordTemplate.js';
 
 dotenv.config()
 
@@ -45,10 +46,7 @@ export const sendResetPasswordEmail = async (email, resetLink) => {
         to: email,
         subject: 'Réinitialisation de votre mot de passe',
         text: `Cliquez sur ce lien pour réinitialiser votre mot de passe (valide 1h) : ${resetLink}`,
-        html: `<p>Vous avez demandé la réinitialisation de votre mot de passe.</p>
-               <p>Cliquez sur ce lien pour choisir un nouveau mot de passe (valide 1 heure) :</p>
-               <p><a href="${resetLink}">${resetLink}</a></p>
-               <p>Si vous n'êtes pas à l'origine de cette demande, ignorez simplement cet email — aucune action ne sera effectuée sur votre compte.</p>`
+        html: resetPasswordTemplate(resetLink)
     };
 
     try {

@@ -14,6 +14,12 @@ const createDirectory = (dirPath) => {
   }
 };
 
+// Génère un nom de fichier sûr : seule l'extension vient du fichier original,
+const uniqueFilename = (file) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    return `${Date.now()}_${crypto.randomBytes(8).toString('hex')}${ext}`;
+};
+
 // Configuration du stockage pour Multer
 const chatFileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -22,8 +28,7 @@ const chatFileStorage = multer.diskStorage({
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}_${file.originalname}`;
-    cb(null, uniqueName);
+    cb(null, uniqueFilename(file));
   },
 });
 
@@ -41,7 +46,7 @@ const chatFileFilter = (req, file, cb) => {
 
  export const chatFile = multer({ 
   storage: chatFileStorage, 
-  limits: { fileSize: 100 * 1024 * 1024 },
+  limits: { fileSize: 15 * 1024 * 1024 },
   fileFilter: chatFileFilter
 });
 
@@ -54,14 +59,13 @@ const storage = multer.diskStorage({
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}_${file.originalname}`;
-    cb(null, uniqueName);
+    cb(null, uniqueFilename(file));
   },
 });
 
 export const upload = multer({
   storage,
-  limits: { fileSize: 100 * 1024 * 1024 }, 
+  limits: { fileSize: 15 * 1024 * 1024 }, 
   fileFilter: (req, file, cb) => {
     const fileTypes = /zip|jpeg|jpg|png|svg|webp|pdf|txt|docx|pptx/;
     const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());

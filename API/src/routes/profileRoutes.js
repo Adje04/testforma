@@ -6,7 +6,7 @@ import { uploadAvatar } from '../middleware/multerMiddleware.js';
 
 const router = express.Router()
 
-router.put('/profile', uploadAvatar.single('avatar'),  verifyToken, updateProfile);
+router.put('/profile', verifyToken, uploadAvatar.single('avatar'), updateProfile);
 
 router.get('/profile', verifyToken, getProfile);
 

@@ -1,13 +1,16 @@
 import MessageService from '../../services/Community/MessageService.js';
 import { validationResult } from 'express-validator';
+
 export const getCommunityMessages = async (req, res) => {
     const { communityId } = req.params;
+     const userId = req.user.id;
 
     try {
-        const messages = await MessageService.getMessagesByCommunity(communityId);
+        const messages = await MessageService.getMessagesByCommunity(communityId, userId);
         return res.status(200).json({ success: true, data: messages });
     } catch (err) {
-        return res.status(500).json({ success: false, error: err.message });
+         const status = err.statusCode || 500;
+        return res.status(status).json({ success: false, error: err.message });
     }
 };
 
@@ -39,7 +42,7 @@ export const sendMessage = async (req, res) => {
         const message = await MessageService.createMessage(data);
 
         const io = req.app.get('io');
-       io.to(communityId).emit('newMessage', message);
+        io.to(communityId).emit('newMessage', message);
 
         return res.status(201).json({
             success: true,
@@ -48,7 +51,8 @@ export const sendMessage = async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        return res.status(500).json({
+        const status = error.statusCode || 500;
+        return res.status(status).json({
             success: false,
             error: error.message,
         });

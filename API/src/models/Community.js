@@ -15,7 +15,7 @@ const communitySchema = new mongoose.Schema(
         engineeringfield: {
             type: String,
             required: true,
-            enum: [],
+            enum: ['Génie mécanique', 'Génie industriel', 'Génie électrique', 'Génie civil', 'Autre'],
             trim: true
         },
         user_id: {

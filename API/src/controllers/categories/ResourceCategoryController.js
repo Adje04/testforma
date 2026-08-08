@@ -53,10 +53,11 @@ export const updateResourceCategory = async (req, res) => {
     const { id } = req.params;
 
     const { name, description } = req.body
-
-    const resourceCategory = await ResourceCategory.findById(id)
+    
 
     try {
+        
+        const resourceCategory = await ResourceCategory.findById(id)
 
         if (!resourceCategory) {
             return res.status(404).json({ success: false, message: 'Catégorie non trouvée' });

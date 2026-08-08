@@ -18,31 +18,31 @@ export const getCommunityByUser = async (userId) => {
     }
 };
 
-
-
-
-
-
-
 export const createCommunity = async (data, creatorId) => {
     try {
 
         const community = await Community.create(data);
-        await addMemberByUserId (community._id, creatorId);  // Ajouterle createur diretement comme membre
+        await addMemberByUserId(community._id, creatorId);  // Ajouterle createur diretement comme membre
         return community;
     } catch (error) {
         throw new Error(`Erreur lors de la creation de la communauté: ${error.message}`);
     }
 };
 
-
-export const addMember = async (communityId, email) => {
+// requesterId : l'utilisateur qui fait la demande d'ajout — doit être le créateur de la communauté
+export const addMember = async (communityId, email, requesterId) => {
     try {
         const community = await Community.findById(communityId);
-        const user = await User.findOne({ email });
-
         if (!community) throw new Error('Communauté non trouvé');
-        if (!user) return false;  
+
+        if (community.user_id.toString() !== requesterId.toString()) {
+            const err = new Error('Seul le créateur de la communauté peut ajouter des membres');
+            err.statusCode = 403;
+            throw err;
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) return false;
 
         const memberExists = community.members.some(member => member.user_id.equals(user._id));
         if (memberExists) return { memberExist: true };
@@ -55,7 +55,8 @@ export const addMember = async (communityId, email) => {
 
         return community;
     } catch (error) {
-        throw new Error(`Error adding member: ${error.message}`);
+        throw error;
+        //throw new Error(`Error adding member: ${error.message}`);
     }
 };
 
@@ -78,7 +79,7 @@ export const addMemberByUserId = async (communityId, userId) => {
         community.members.push({ user_id: userId });
         await community.save();
 
-    
+
         // await notifyCommunityMembers(community, user);
 
         return { community };

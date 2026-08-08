@@ -34,11 +34,11 @@ export const getQuestionsDetail = async (req, res) => {
         const { id } = req.params;
 
         const questions = await Question.findOne({ _id: id })
-            .populate('responses.user_id', 'name avatar') 
+            .populate('responses.user_id', 'name avatar')
             .lean()
             .exec();
 
-            
+
         if (!questions) {
             res.status(404).json({
                 success: false,
@@ -57,7 +57,7 @@ export const getQuestionsDetail = async (req, res) => {
             message: 'Une erreur de source inattendue est survenue',
             error: error.message
         });
-      
+
     }
 
 };
@@ -69,9 +69,9 @@ export const getAllQuestions = async (req, res) => {
             .populate('category_question_id')
             .populate('user_id')
             .lean()
-            .sort({ createdAt: -1 })  
+            .sort({ createdAt: -1 })
             .exec();
-         
+
 
         // ajouter le nombre de réponses pour chaque questions
         const questionsWithResponseCount = questions.map(question => ({
@@ -90,7 +90,6 @@ export const getAllQuestions = async (req, res) => {
             data: questionsWithResponseCount,
         });
     } catch (e) {
-        console.log(error);
         res.status(500).json({
             success: false,
             message: "Une erreur de source inattendue est survenue",
@@ -118,12 +117,12 @@ export const createQuestion = async (req, res) => {
             data: savedQuestion
         });
     } catch (error) {
-        console.log(error)
-        // res.status(500).json({
-        //     success: false,
-        //     message: 'Une erreur de source inattendue s\'est produite',
-        //     error: error.message
-        // });
+        //console.log(error)
+        res.status(500).json({
+            success: false,
+            message: 'Une erreur de source inattendue s\'est produite',
+            // error: error.message
+        });
     }
 };
 
@@ -142,7 +141,7 @@ export const updateQuestion = async (req, res) => {
             return res.status(404).json({ success: false, message: 'Question non trouvée ou accès non autorisé' });
         }
 
-  
+
         if (category_question_id) {
             const categoryExists = await CategoryQuestion.findById(category_question_id);
             if (!categoryExists) {
@@ -176,10 +175,10 @@ export const updateQuestion = async (req, res) => {
 
 export const deleteQuestion = async (req, res) => {
     const { id } = req.params;
-    const userId = req.user.id; 
+    const userId = req.user.id;
 
     try {
-        const question = await Question.findOneAndDelete({ _id: id, user_id: userId }); 
+        const question = await Question.findOneAndDelete({ _id: id, user_id: userId });
         if (!question) {
             return res.status(404).json({ success: false, message: 'Question non trouvée ou accès non autorisé' });
         }

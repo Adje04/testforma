@@ -47,11 +47,11 @@ export const createResource = async (req, res) => {
 
 export const getAllResources = async (req, res) => {
   try {
-    const resources = await Resource.find({}).populate("user_id", "username").populate("category");
+    const resources = await Resource.find({}).populate("user_id", "name").populate("category");
     if (!resources.length) {
       return res.status(404).json({
           success: false,
-          message: "questions non trouvées",
+          message: "Aucune ressource trouvée",
       });
   }
     res.json({ success: true, message: "Resources récupérés avec succès", data: resources });

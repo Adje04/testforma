@@ -61,9 +61,10 @@ export const addMember = async (req, res) => {
 
     const { email } = req.body;
     const { communityId } = req.params;
+    const requesterId = req.user.id;
 
     try {
-        const community = await CommunityService.addMember(communityId, email);
+        const community = await CommunityService.addMember(communityId, email, requesterId);
 
         if (!community) {
             // await CommunityService.sendInvitation(email, communityId); 
@@ -76,8 +77,9 @@ export const addMember = async (req, res) => {
 
         return res.status(201).json({ success: true, data: community, message: 'membre ajouté avec succès' });
     } catch (err) {
-        console.log(err);
-        return res.status(500).json({ success: false, error: err.message });
+        //console.log(err);
+         const status = err.statusCode || 500;
+        return res.status(status).json({ success: false, error: err.message });
     }
 };
 
